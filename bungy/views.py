@@ -28,7 +28,10 @@ def overview(request):
 def test(request):
     today = datetime.datetime.now().date()
     daysOfWeek = ["mon", "tue", "wed", "thur", "fri", "sat", "sun"]
-    return render(request, "test.html", {"today" : today, "days_of_week": daysOfWeek})
+    numberArray = []
+    for int in range(0, 100):
+        numberArray.append(int)
+    return render(request, "test.html", {"today": today, "days_of_week": daysOfWeek, "numbers": numberArray})
 
 
 def login(request):
