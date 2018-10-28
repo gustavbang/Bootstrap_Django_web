@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 # Create your views here.
@@ -21,3 +23,8 @@ def overview(request):
     template = loader.get_template("overview.html")
     context = {}
     return HttpResponse(template.render(context, request))
+
+def test(request):
+    today = datetime.datetime.now().date()
+    daysOfWeek = ["mon", "tue", "wed", "thur", "fri", "sat", "sun"]
+    return render(request, "test.html", {"today" : today, "days_of_week": daysOfWeek})
